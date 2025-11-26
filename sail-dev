@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Script para iniciar Laravel Sail con Vite
+echo "🚀 Iniciando Laravel Sail..."
+./vendor/bin/sail up -d
+
+echo "⏳ Esperando que los contenedores estén listos..."
+sleep 5
+
+echo "📦 Instalando/actualizando dependencias de npm en el contenedor..."
+./vendor/bin/sail npm install
+
+echo "⚡ Iniciando Vite en el contenedor..."
+echo "Nota: Para detener, presiona Ctrl+C"
+./vendor/bin/sail npm run dev
